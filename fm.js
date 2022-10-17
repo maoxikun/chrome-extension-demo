@@ -12,7 +12,10 @@ window.onload = function () {
                 fmimg.src = response.Data.cover;
                 fmimg.height = "200";
                 fmimg.width = "200";
-                const audio = document.getElementById('fm')
+                document.getElementById('nowplaying').innerText = response.Data.nowplaying.broadcasters.map((item) => item.username).join(",") + " - " +
+                    response.Data.nowplaying.name + " -> " +
+                    response.Data.nowplaying.start_time + " - " + response.Data.nowplaying.end_time;
+                const audio = document.getElementById('fm');
                 audio.src = "https://lhttp.qtfm.cn/live/" + response.Data.id + "/64k.mp3";
                 audio.volume = 0.5;
                 audio.play();
