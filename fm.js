@@ -10,8 +10,6 @@ window.onload = function () {
             button.addEventListener('click', () => {
                 const fmimg = document.getElementById("fmimg");
                 fmimg.src = response.Data.cover;
-                fmimg.height = "200";
-                fmimg.width = "200";
                 document.getElementById('nowplaying').innerText = response.Data.nowplaying.broadcasters.map((item) => item.username).join(",") + " - " +
                     response.Data.nowplaying.name + " -> " +
                     response.Data.nowplaying.start_time + " - " + response.Data.nowplaying.end_time;
