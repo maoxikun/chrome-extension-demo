@@ -1,4 +1,4 @@
-function getProductsOfApp() {
+function getProductCodes() {
     const productCodes = [];
     $.getJSON("https://data.services.jetbrains.com/products", {
         "fields": ["name", "salesCode"].join(",")
@@ -35,7 +35,7 @@ function getProductsOfApp() {
     return productCodes;
 }
 
-function getProductsOfPlugin() {
+function getPluginProductCodes() {
     const productCodes = [];
     $.getJSON("https://plugins.jetbrains.com/api/searchPlugins", {
         "max": 10000,
@@ -81,9 +81,16 @@ function getProductsOfPlugin() {
 }
 
 window.onload = function () {
-    const a = getProductsOfApp();
-    const b = getProductsOfPlugin();
+    const productCodes = getProductCodes();
+    const pluginProductCodes = getPluginProductCodes();
     setTimeout(() => {
-        document.getElementById("app_product_codes").innerText = Array.from(new Set(a.concat(b))).sort().map(item => '"' + item + '"').toString();
+        document.getElementById("product_codes").innerText =
+            Array.from(productCodes).sort().map(item => '"' + item + '"').toString() +
+            "\n" +
+            productCodes.length +
+            "\n" +
+            Array.from(pluginProductCodes).sort().map(item => '"' + item + '"').toString() +
+            "\n" +
+            pluginProductCodes.length;
     }, 10000);
 }
