@@ -15,7 +15,7 @@ window.onload = function () {
                     response.Data.nowplaying.start_time + " - " + response.Data.nowplaying.end_time;
                 const audio = document.getElementById('fm');
                 audio.src = "https://lhttp.qtfm.cn/live/" + ids[i] + "/64k.mp3";
-                audio.volume = 0.5;
+                audio.volume = 0.33;
                 audio.play();
             });
             td.appendChild(button);
