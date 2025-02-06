@@ -7,13 +7,13 @@ window.onload = function () {
             const td = document.createElement("td");
             const button = document.createElement("button");
             button.innerText = response.Data.title;
-            button.addEventListener('click', () => {
+            button.addEventListener("click", () => {
                 const fmimg = document.getElementById("fmimg");
                 fmimg.src = response.Data.cover;
-                document.getElementById('nowplaying').innerText = response.Data.nowplaying.broadcasters.map((item) => item.username).join(",") + " - " +
+                document.getElementById("nowplaying").innerText = response.Data.nowplaying.broadcasters.map((item) => item.username).join(",") + " - " +
                     response.Data.nowplaying.name + " -> " +
                     response.Data.nowplaying.start_time + " - " + response.Data.nowplaying.end_time;
-                const audio = document.getElementById('fm');
+                const audio = document.getElementById("fm");
                 audio.src = "https://lhttp.qtfm.cn/live/" + ids[i] + "/64k.mp3";
                 audio.volume = 0.33;
                 audio.play();

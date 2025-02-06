@@ -7,7 +7,8 @@
     "webRequest"
   ],
   "host_permissions": [
-    "https://*.jetbrains.com/*"
+    "https://*.jetbrains.com/*",
+    "https://*.heimuer.tv/*"
   ],
   "action": {
     "default_popup": "demo.html"
