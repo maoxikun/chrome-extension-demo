@@ -95,7 +95,7 @@ window.onload = function () {
     $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=1").then((response) => {
         const videoCategories = response.class;
         videoCategories.forEach(videoCategory => {
-            let option = document.createElement("option");
+            const option = document.createElement("option");
             option.value = videoCategory.type_id;
             option.innerText = videoCategory.type_name;
             document.getElementById("videoSearchCategory").appendChild(option);
