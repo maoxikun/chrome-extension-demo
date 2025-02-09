@@ -13,6 +13,10 @@ function video(videoId) {
             const videoItems = videoDetails[i].split("$");
             const td = document.createElement("td");
             const button = document.createElement("button");
+            button.style.width = "8vw";
+            button.style.whiteSpace = "nowrap";
+            button.style.overflow = "hidden";
+            button.style.textOverflow = "ellipsis";
             button.innerText = videoItems[0] < 10 ? "0" + videoItems[0] : videoItems[0];
             button.addEventListener("click", () => {
                 document.getElementById("videoTitle").innerText = videoDetail.vod_name + " " + button.innerText;
@@ -37,6 +41,10 @@ function searchVideo(keyword) {
         for (let i = 0; i < videoSearchDetails.length; i++) {
             const td = document.createElement("td");
             const button = document.createElement("button");
+            button.style.width = "8vw";
+            button.style.whiteSpace = "nowrap";
+            button.style.overflow = "hidden";
+            button.style.textOverflow = "ellipsis";
             button.innerText = videoSearchDetails[i].vod_name;
             button.addEventListener("click", () => {
                 document.getElementById("videoSearch").hidden = true;
@@ -45,7 +53,7 @@ function searchVideo(keyword) {
             });
             td.appendChild(button);
             tr.appendChild(td);
-            if ((i + 1) % 7 == 0) {
+            if ((i + 1) % 10 == 0) {
                 tr = document.createElement("tr");
                 document.getElementById("videoSearchTable").appendChild(tr);
             }
@@ -62,6 +70,10 @@ function categoryVideo(categoryVideoId) {
         for (let i = 0; i < videoSearchDetails.length; i++) {
             const td = document.createElement("td");
             const button = document.createElement("button");
+            button.style.width = "8vw";
+            button.style.whiteSpace = "nowrap";
+            button.style.overflow = "hidden";
+            button.style.textOverflow = "ellipsis";
             button.innerText = videoSearchDetails[i].vod_name;
             button.addEventListener("click", () => {
                 document.getElementById("videoSearch").hidden = true;
@@ -70,7 +82,7 @@ function categoryVideo(categoryVideoId) {
             });
             td.appendChild(button);
             tr.appendChild(td);
-            if ((i + 1) % 7 == 0) {
+            if ((i + 1) % 10 == 0) {
                 tr = document.createElement("tr");
                 document.getElementById("videoSearchTable").appendChild(tr);
             }
