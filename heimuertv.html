@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>Heimuertv</title>
     <script src="libs/jquery.js"></script>
 </head>
@@ -9,7 +10,9 @@
 <body style="text-align:center">
     <div id="videoSearch">
         <div>
-            <select id="videoSearchCategory" name="videoSearchCategory"></select>
+            <select id="videoSearchCategory"></select>
+            <input id="videoSearchKeyword" type="text" placeholder="关键字"></input>
+            <button id="videoSearchButton">搜索</button>
         </div>
         <div>
             <table id="videoSearchTable" style="border-spacing: 1vw; margin: auto"></table>
@@ -21,7 +24,8 @@
             <h1 id="videoTitle"></h1>
         </div>
         <div style="width: 80vw; height: 45vw; margin: 0 auto 1%">
-            <iframe id="videoFrame" src="about:blank" width="100%" height="100%" scrolling="no" frameborder="0" allowfullscreen></iframe>
+            <iframe id="videoFrame" src="about:blank" width="100%" height="100%" scrolling="no" frameborder="0"
+                allowfullscreen></iframe>
         </div>
         <div>
             <table id="videoTable" style="border-spacing:1vw 1vw; margin: auto"></table>
