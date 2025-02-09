@@ -17,7 +17,7 @@ function video(videoId) {
             button.style.whiteSpace = "nowrap";
             button.style.overflow = "hidden";
             button.style.textOverflow = "ellipsis";
-            button.innerText = videoItems[0] < 10 ? "0" + videoItems[0] : videoItems[0];
+            button.innerText = videoItems[0];
             button.addEventListener("click", () => {
                 document.getElementById("videoTitle").innerText = videoDetail.vod_name + " " + button.innerText;
                 document.getElementById("videoFrame").src = "https://hoplayer.com/index.html?url=" + videoItems[1];
