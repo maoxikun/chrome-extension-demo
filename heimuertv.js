@@ -20,7 +20,7 @@ function video(videoId) {
             });
             td.appendChild(button);
             tr.appendChild(td);
-            if ((i + 1) % 20 == 0) {
+            if ((i + 1) % 10 == 0) {
                 tr = document.createElement("tr");
                 document.getElementById("videoTable").appendChild(tr);
             }
@@ -32,13 +32,14 @@ function categoryVideo(categoryVideoId) {
     $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=100&t=" + categoryVideoId).then((response) => {
         const videoSearchDetails = response.list;
         let tr = document.createElement("tr");
+        document.getElementById("videoSearchTable").innerHTML = "";
         document.getElementById("videoSearchTable").appendChild(tr);
         for (let i = 0; i < videoSearchDetails.length; i++) {
             const td = document.createElement("td");
             const button = document.createElement("button");
             button.innerText = videoSearchDetails[i].vod_name;
             button.addEventListener("click", () => {
-                document.getElementById("videoSearch").remove();
+                document.getElementById("videoSearch").hidden = true;
                 document.getElementById("video").hidden = false;
                 video(videoSearchDetails[i].vod_id);
             });
@@ -52,7 +53,23 @@ function categoryVideo(categoryVideoId) {
     });
 }
 
+function listCategoryVideo() {
+    $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=1").then((response) => {
+        const videoCategories = response.class;
+        videoCategories.forEach(videoCategory => {
+            let option = document.createElement("option");
+            option.value = videoCategory.type_id;
+            option.innerText = videoCategory.type_name;
+            document.getElementById("videoSearchCategory").appendChild(option);
+        });
+        document.getElementById("videoSearchCategory").addEventListener("change", () => {
+            categoryVideo(document.getElementById("videoSearchCategory").value);
+        });
+        categoryVideo(document.getElementById("videoSearchCategory").value);
+    });
+}
+
 window.onload = function () {
     document.getElementById("video").hidden = true;
-    categoryVideo(13);
+    listCategoryVideo();
 }
