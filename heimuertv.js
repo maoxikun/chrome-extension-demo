@@ -41,7 +41,7 @@ function searchVideo(keyword) {
         for (let i = 0; i < videoSearchDetails.length; i++) {
             const td = document.createElement("td");
             const button = document.createElement("button");
-            button.style.width = "8vw";
+            button.style.width = "12vw";
             button.style.whiteSpace = "nowrap";
             button.style.overflow = "hidden";
             button.style.textOverflow = "ellipsis";
@@ -53,7 +53,7 @@ function searchVideo(keyword) {
             });
             td.appendChild(button);
             tr.appendChild(td);
-            if ((i + 1) % 10 == 0) {
+            if ((i + 1) % 5 == 0) {
                 tr = document.createElement("tr");
                 document.getElementById("videoSearchTable").appendChild(tr);
             }
@@ -70,7 +70,7 @@ function categoryVideo(categoryVideoId) {
         for (let i = 0; i < videoSearchDetails.length; i++) {
             const td = document.createElement("td");
             const button = document.createElement("button");
-            button.style.width = "8vw";
+            button.style.width = "12vw";
             button.style.whiteSpace = "nowrap";
             button.style.overflow = "hidden";
             button.style.textOverflow = "ellipsis";
@@ -82,7 +82,7 @@ function categoryVideo(categoryVideoId) {
             });
             td.appendChild(button);
             tr.appendChild(td);
-            if ((i + 1) % 10 == 0) {
+            if ((i + 1) % 5 == 0) {
                 tr = document.createElement("tr");
                 document.getElementById("videoSearchTable").appendChild(tr);
             }
