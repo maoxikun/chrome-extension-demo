@@ -6,7 +6,7 @@ function video(videoId) {
     $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=detail&ids=" + videoId).then((response) => {
         const videoDetail = response.list[0];
         document.getElementById("videoTitle").innerText = videoDetail.vod_name;
-        const videoDetails = videoDetail.vod_play_url.split("#").sort((a, b) => new Intl.Collator("zh", { numeric: true }).compare(a, b));
+        const videoDetails = videoDetail.vod_play_url.split("#").sort((a, b) => new Intl.Collator("zh", { numeric: true }).compare(b, a));
         let tr = document.createElement("tr");
         document.getElementById("videoTable").appendChild(tr);
         for (let i = 0; i < videoDetails.length; i++) {
