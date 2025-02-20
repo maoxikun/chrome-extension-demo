@@ -6,6 +6,7 @@ function video(videoId) {
     $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=detail&ids=" + videoId).then((response) => {
         const videoDetail = response.list[0];
         document.getElementById("videoTitle").innerText = videoDetail.vod_name;
+        document.title = videoDetail.vod_name;
         const videoDetails = videoDetail.vod_play_url.split("#").sort((a, b) => new Intl.Collator("zh", { numeric: true }).compare(b, a));
         let tr = document.createElement("tr");
         document.getElementById("videoTable").appendChild(tr);
@@ -20,6 +21,7 @@ function video(videoId) {
             button.innerText = videoItems[0];
             button.addEventListener("click", () => {
                 document.getElementById("videoTitle").innerText = videoDetail.vod_name + " " + button.innerText;
+                document.title = videoDetail.vod_name + " " + button.innerText;
                 document.getElementById("videoFrame").src = "https://hoplayer.com/index.html?url=" + videoItems[1];
             });
             td.appendChild(button);
