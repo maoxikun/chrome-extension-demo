@@ -19,6 +19,7 @@ function video(videoId) {
             button.style.overflow = "hidden";
             button.style.textOverflow = "ellipsis";
             button.innerText = videoItems[0];
+            button.title = videoItems[0];
             button.addEventListener("click", () => {
                 document.getElementById("videoTitle").innerText = videoDetail.vod_name + " " + button.innerText;
                 document.title = videoDetail.vod_name + " " + button.innerText;
@@ -48,6 +49,7 @@ function searchVideo(keyword) {
             button.style.overflow = "hidden";
             button.style.textOverflow = "ellipsis";
             button.innerText = videoSearchDetails[i].vod_name;
+            button.title = videoSearchDetails[i].vod_name;
             button.addEventListener("click", () => {
                 document.getElementById("videoSearch").hidden = true;
                 document.getElementById("video").hidden = false;
@@ -77,6 +79,7 @@ function categoryVideo(categoryVideoId) {
             button.style.overflow = "hidden";
             button.style.textOverflow = "ellipsis";
             button.innerText = videoSearchDetails[i].vod_name;
+            button.title = videoSearchDetails[i].vod_name;
             button.addEventListener("click", () => {
                 document.getElementById("videoSearch").hidden = true;
                 document.getElementById("video").hidden = false;
