@@ -3,7 +3,7 @@
 // https://heimuer.tv/api.php/provide/vod/?ac=detail&ids=45861
 
 function video(videoId) {
-    $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=detail&ids=" + videoId).then((response) => {
+    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=detail&ids=" + videoId).then((response) => {
         const videoDetail = response.list[0];
         document.getElementById("videoTitle").innerText = videoDetail.vod_name;
         document.title = videoDetail.vod_name;
@@ -36,7 +36,7 @@ function video(videoId) {
 }
 
 function searchVideo(keyword) {
-    $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=100&wd=" + keyword).then((response) => {
+    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=list&pg=1&pagesize=100&wd=" + keyword).then((response) => {
         const videoSearchDetails = response.list;
         let tr = document.createElement("tr");
         document.getElementById("videoSearchTable").innerHTML = "";
@@ -66,7 +66,7 @@ function searchVideo(keyword) {
 }
 
 function categoryVideo(categoryVideoId) {
-    $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=100&t=" + categoryVideoId).then((response) => {
+    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=list&pg=1&pagesize=100&t=" + categoryVideoId).then((response) => {
         const videoSearchDetails = response.list;
         let tr = document.createElement("tr");
         document.getElementById("videoSearchTable").innerHTML = "";
@@ -97,7 +97,7 @@ function categoryVideo(categoryVideoId) {
 
 window.onload = function () {
     document.getElementById("video").hidden = true;
-    $.getJSON("https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=1").then((response) => {
+    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=list&pg=1&pagesize=1").then((response) => {
         const videoCategories = response.class;
         videoCategories.forEach(videoCategory => {
             const option = document.createElement("option");

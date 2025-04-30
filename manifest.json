@@ -8,7 +8,8 @@
   ],
   "host_permissions": [
     "https://*.jetbrains.com/*",
-    "https://*.heimuer.tv/*"
+    "https://*.heimuer.tv/*",
+    "https://*.heimuer.xyz/*"
   ],
   "action": {
     "default_popup": "demo.html"
