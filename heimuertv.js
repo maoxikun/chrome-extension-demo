@@ -20,7 +20,16 @@ function video(videoId) {
             button.style.textOverflow = "ellipsis";
             button.innerText = videoItems[0];
             button.title = videoItems[0];
-            button.addEventListener("click", () => {
+            button.addEventListener("click", (e) => {
+                let currentVideoButton = document.getElementById("currentVideoButton");
+                if (currentVideoButton !== null) {
+                    currentVideoButton.removeAttribute("id");
+                    currentVideoButton.style.removeProperty("color");
+                    currentVideoButton.style.removeProperty("border");
+                }
+                e.target.id = "currentVideoButton";
+                e.target.style.color = "red";
+                e.target.style.border = "none";
                 document.getElementById("videoTitle").innerText = videoDetail.vod_name + " " + button.innerText;
                 document.title = videoDetail.vod_name + " " + button.innerText;
                 document.getElementById("videoFrame").src = "https://hoplayer.com/index.html?url=" + videoItems[1];
