@@ -8,8 +8,29 @@
   ],
   "host_permissions": [
     "https://*.jetbrains.com/*",
+    "https://*.caiji.dyttzyapi.com/*",
+    "https://*.cj.rycjapi.com/*",
+    "https://*.dbzy.tv/*",
+    "https://*.bfzyapi.com/*",
+    "https://*.tyyszy.com/*",
+    "https://*.api.ffzyapi.com/*",
+    "https://*.360zy.com/*",
+    "https://*.wolongzyw.com/*",
+    "https://*.jszyapi.com/*",
+    "https://*.mozhuazy.com/*",
+    "https://*.www.mdzyapi.com/*",
+    "https://*.api.zuidapi.com/*",
+    "https://*.m3u8.apiyhzy.com/*",
+    "https://*.api.wujinapi.me/*",
+    "https://*.wwzy.tv/*",
+    "https://*.ikunzyapi.com/*",
+    "https://*.cj.lziapi.com/*",
+    "https://*.caiji.maotaizy.cc/*",
+    "https://*.www.hongniuziyuan.com/*",
+    "https://*.bdzy.tv/*",
+    "https://*.xinlangzy.com/*",
     "https://*.heimuer.tv/*",
-    "https://*.heimuer.xyz/*"
+    "https://*.json.heimuer.xy/*z"
   ],
   "action": {
     "default_popup": "demo.html"

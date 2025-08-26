@@ -1,13 +1,36 @@
-// https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=100&wd=五福
-// https://heimuer.tv/api.php/provide/vod/?ac=list&pg=1&pagesize=100&t=13
-// https://heimuer.tv/api.php/provide/vod/?ac=detail&ids=45861
+var apis = [
+    "https://caiji.dyttzyapi.com",
+    "https://cj.rycjapi.com",
+    "https://dbzy.tv",
+    "https://bfzyapi.com",
+    "https://tyyszy.com",
+    "https://api.ffzyapi.com",
+    "https://360zy.com",
+    "https://wolongzyw.com",
+    "https://jszyapi.com",
+    "https://mozhuazy.com",
+    "https://www.mdzyapi.com",
+    "https://api.zuidapi.com",
+    "https://m3u8.apiyhzy.com",
+    "https://api.wujinapi.me",
+    "https://wwzy.tv",
+    "https://ikunzyapi.com",
+    "https://cj.lziapi.com",
+    "https://caiji.maotaizy.cc",
+    "https://www.hongniuziyuan.com",
+    "https://bdzy.tv",
+    "https://xinlangzy.com",
+    "https://heimuer.tv",
+    "https://json.heimuer.xyz"
+];
+var api = apis[1];
 
 function video(videoId) {
-    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=detail&ids=" + videoId).then((response) => {
+    $.getJSON(api + "/api.php/provide/vod/?ac=detail&ids=" + videoId).then((response) => {
         const videoDetail = response.list[0];
         document.getElementById("videoTitle").innerText = videoDetail.vod_name;
         document.title = videoDetail.vod_name;
-        const videoDetails = videoDetail.vod_play_url.split("#").sort((a, b) => new Intl.Collator("zh", { numeric: true }).compare(b, a));
+        const videoDetails = videoDetail.vod_play_url.split("$$$").filter(x => !x.endsWith(".m3u8"))[0].split("#").sort((a, b) => new Intl.Collator("zh", { numeric: true }).compare(b, a));
         let tr = document.createElement("tr");
         document.getElementById("videoTable").appendChild(tr);
         for (let i = 0; i < videoDetails.length; i++) {
@@ -32,7 +55,7 @@ function video(videoId) {
                 e.target.style.border = "none";
                 document.getElementById("videoTitle").innerText = videoDetail.vod_name + " " + button.innerText;
                 document.title = videoDetail.vod_name + " " + button.innerText;
-                document.getElementById("videoFrame").src = "https://hoplayer.com/index.html?url=" + videoItems[1];
+                document.getElementById("videoFrame").src = videoItems[1];
             });
             td.appendChild(button);
             tr.appendChild(td);
@@ -45,7 +68,7 @@ function video(videoId) {
 }
 
 function searchVideo(keyword) {
-    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=list&pg=1&pagesize=100&wd=" + keyword).then((response) => {
+    $.getJSON(api + "/api.php/provide/vod/?ac=list&pg=1&pagesize=100&wd=" + keyword).then((response) => {
         const videoSearchDetails = response.list;
         let tr = document.createElement("tr");
         document.getElementById("videoSearchTable").innerHTML = "";
@@ -75,7 +98,7 @@ function searchVideo(keyword) {
 }
 
 function categoryVideo(categoryVideoId) {
-    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=list&pg=1&pagesize=100&t=" + categoryVideoId).then((response) => {
+    $.getJSON(api + "/api.php/provide/vod/?ac=list&pg=1&pagesize=100&t=" + categoryVideoId).then((response) => {
         const videoSearchDetails = response.list;
         let tr = document.createElement("tr");
         document.getElementById("videoSearchTable").innerHTML = "";
@@ -106,7 +129,7 @@ function categoryVideo(categoryVideoId) {
 
 window.onload = function () {
     document.getElementById("video").hidden = true;
-    $.getJSON("https://json.heimuer.xyz/api.php/provide/vod/?ac=list&pg=1&pagesize=1").then((response) => {
+    $.getJSON(api + "/api.php/provide/vod/?ac=list&pg=1&pagesize=1").then((response) => {
         const videoCategories = response.class;
         videoCategories.forEach(videoCategory => {
             const option = document.createElement("option");
