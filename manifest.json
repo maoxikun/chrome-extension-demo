@@ -30,7 +30,7 @@
     "https://*.bdzy.tv/*",
     "https://*.xinlangzy.com/*",
     "https://*.heimuer.tv/*",
-    "https://*.json.heimuer.xy/*z"
+    "https://*.json.heimuer.xyz/*"
   ],
   "action": {
     "default_popup": "demo.html"
